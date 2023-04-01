@@ -1,0 +1,209 @@
+1. Ders   KONU: GIT/GITHUB 
+GIT : Versiyon kontrol sistemidir. Git versiyonlar arasında ki geçişi aktarmana yardımcı olur.
+GITHUB, GITLAB : Senin depondur. Uzak sunucudaki depodur. 
+
+Remote Repository: Uzak Sunucu
+Remote Repository -->> Working Directory -->> Staging -->> Local Repository -->> Remote Reposiory
+Remote Repository -->> Online kısmımızdır. Diğer kısımlar offline kısımlardır.
+
+--------------------------------------------------------------------------------------------------------------
+2. Ders    KONU: Kurulum Videosudur.
+----------------------------------------------------------------------------------------------------------------
+
+3. Ders    KONU: GIT CONFIG Komutu
+git config --global user 
+
+Üstte bulunan ifadede "git" her komutun başında olacaktır.
+"config" ise Konfigürasyon ayarları ile ilgili bir şey yapacağımızı belirtiyor.
+"Global" ifadesi sadece yerelde değil aynı zamanda globalde de bunu kullanacağımı belirtiyor.
+"user" kullanıcı ile ilgili işlemler yapacağımızda kullanılıyor.
+
+git config --list 
+Entere bastığımızda bize bir liste verir ve bu listede ismimizi mailimizi görebiliriz. 
+
+E-mail tanımlamak için -->> git config --global user.email "avsarumut34@hotmail.com"
+
+--------------------------------------------------------------------------------------------------------------------
+
+4. Ders  KONU: Git Init
+
+Basit Komutlar:
+clear -->> terminal ekranını tamamen temizler.
+pwd -->> Hangi dosya yolunda olduğunu gösterir. -->> Örnek: /c/Users/hoşgeldiniz/
+cd .. -->> Bir üst klasöre geçmeni sağlar.
+
+cd "klasör ismi" -->> Tırnak içinde bulunan yere yazdığınız klasör isminin içine girersiniz. Örnek cd avşar  ifadesinde
+avşar klasörünün içine gireriz.
+
+mkdir "make direction" -->> "mkdir app" yazarsak app adında bir dosya oluşturur.
+
+ls -->> İçeride bulunan dosyaları listeler. 
+
+touch -->> Oluşturulan Klasörün içinde dosya oluşturmak için kullanılır.
+touch dosyaadı.uzantı -->> touch index.html     index.html dosyasını oluşturur.
+
+------------------------------------------------------------------------------------------------------
+
+git init -->> İçinde bulunduğumuz klasörün için .git uzantısı ile bir dosya oluşturur ve GİT i kullanmaya başlayabiliyoruz.
+Sadece proje başlangıcında bir kere yazıp bırakıyoruz bu şekilde o proje içinde kullanmaya başlıyoruz. 
+Local Git Depomuzu oluşturuyor. 
+
+-----------------------------------------------------------------------------------------------------------------
+
+ls komutu bize klasör içerisinde bulunan dosyaları gösterir ancak ".git" dosyası gizli olacağından dolayı sadece "ls" yazarsak terminal listesinde göremeyiz.
+Bunun yerine "ls -a" ifadesini kullanmalıyız. Bu komut bulunduğumuz dosyadaki gizli ve gizli olmayan bütün dosyaları gösterir.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+git status -->> Localde bulunan dosyanın içinde yaptığın değişiklikleri gösterir. Henüz commit etmediğin değişiklikleri gösterir. Ayrıca commitlenmeye bekleyen dosyaları gösterir.
+
+git add <dosya>  -->> Dosya eklemimizi sağlıyor. Commitlenmeye hazır dosya yeşil renk ile yazılır. 
+
+git add . -->> Bu komut bütün dosyaları gönderir. İçine yazılan yazılarla beraber gönderir. Toplu ekleme işlemidir. Dosyalar commit için hazır durumdadır.
+
+git commit -m "commit 1" -->> Dosyaları commitleriz.
+
+git log -->>  Log tutar. Yaptığın işlem ve değişiklikleri tutar.
+              Kimin değişiklik yaptığı, tarih, commit ID'sı ve tarihi yazar ve commiti gönderirken yazdığımız mesaj yazıyor.
+
+git log --oneline Git log komutunun yaptığının daha kısa halini gönderir.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+8.Ders :  GİT VERSİYON DEĞİŞTİRME
+
+Versiyon değiştirme eğer bir dosyayı kazayla silersek ve yeniden ihtiyacımız olursa bu komutu kullanıyoruz. Git status ile silindiği adıma gidip orada ki kodunu
+kopyalayıp "git checkout <ID> -- ." yazdığımızda bize silinen dosyayı geri getirir. 
+
+Eğer "git checkout <ID> -- ." ifadesinde "-- ." ifadesini eklemezsen yönetici kısmını değiştiriyor. Ve kodu yönetici olarak tanımlıyor. Master kullanıcısı gidiyor. 
+Bunu düzeltmek için  "git checkout master" yazıp entere bas. Tekrar master kullanıcısına dönecektir.
+ 
+-------------------------------------------------------------------------------------------------------
+9. Ders Git Diff Komutu 
+git diff komutu dosyanın içerisinde yaptığımız değişiklikleri gösterir. Yazı ekleyıp çıkarırsak bunları bize gösterir. 
+Eğer tek bir dosyada ki değişiklikleri göstermesini istersek "git diff deneme4.txt" şeklinde yazmamız yeterli olacaktır.
+
+----------------------------------------------------------------------------------------------------------------
+10. Ders Değişiklikleri Geri Alma  Restore 
+Kazayla sildiğimiz dosyaları geri getirmek için kullanılıyor.
+git checkout -- deneme4.txt 
+
+deneme4.txt ismi örnektir. 
+
+Eğer hata yaptığımızı dosyayı stacing area ya gönderdikten sonra fark edersek 
+yani "git add " komutundan sonra fark edersek o zaman şunu kullanıyoruz;
+
+"git reset HEAD deneme4.txt " dosyayı bu komut ile geri çekiyoruz daha sonra ise 
+yeniden "git checkout -- deneme4.txt" ifadesini yazıp entere basarsak ifademiz tamamiyle geri gelmiş olacaktır.
+
+deneme4.txt ismi örnektir.
+
+----------------------------------------------------------------------------------------------------------------------
+11. Ders Git Remove (Dosya silme işlemi)
+ 
+Dosya silmek için komutumuz 
+"git rm deneme4.txt"'dir.
+Dosya silmek için kullanılır.
+
+Daha sonra buna commit ekleyerek yorum yap ve belirt ne için sildiğini vesaire.
+
+Klasör silmek için
+"git rm -r deneme4.txt "  hem klasörü hemde içersindeki dosyaları siler.
+
+----------------------------------------------------------------------------------------------------------------------
+12. Git Move Özelliği 
+Hem dosya ismini dğeiştirmemizi sağlar hemde dosyanın konumunu değiştirmemizi sağlar.
+
+Dosya ismini değiştirmek için ;
+" git mv eskiisim.txt yeniisim.txt"
+eskisim.txt -->> Mevcut dosya adı
+yeniisim.txt-->> Yeni yapmak istediğimiz dosya adı
+
+Dosya Alanı değiştirme 
+"git mv test.txt dosya/"
+
+Burada ki dosya ismi yeni taşıma alanımızın ismidir. 
+
+Taşırken Dosyanın İsmini Değiştirme
+"git mv deneme1.txt dosya/abc.txt" 
+abc.txt -->> yeni dosya ismimizi temsil ediyor.
+dosya -->> taşınacak yeri temsil ediyor.
+ 
+--------------------------------------------------------------------------------------------
+13. Git Alias Özelliği
+Bu özelliği atama gibi düşünebiliriz. Bu özellik şu şekilde çalışıyor.
+Mesela git status yazmak yerine bu komut sayesinde "status" ifadesini "st" diye tanımlarsak
+"git st" yazdığımızda da "git status " komutu ile aynı işlemi yapacaktır.
+
+Komutu şu şekilde kullanılıyor. -->> git config --global alias.st status 
+Burada ki status -->> git status komutu ile aynı 
+alias.st -->> Status komutunun hangi kısaltmaya atayacağımızı yazıyoruz. (st)
+
+-------------------------------------------------------------------------------------------------
+14. Github Giriş  Hesap açmayı gösterdi.
+--------------------------------------------------------------------------------------------
+15. Github Push 
+Yerel alandaki (bilgisayarımızdaki) dosyaları uzak depolara yani Github a göndermek için sırasıyla;
+
+1- Github da oluşturduğumuz yeni Repository (depolama alanımızın) bağlantı linkini kopyalıyoruz.
+
+2- Terminal ekranında "git remote add göndereceğimiz_dosya_adı repository_linki"
+
+3- "git push -u göndereceğimiz_dosya_adi göndereceğimiz_branch" diyerek dosyalarımızı uzak sunucumuza gönderiyoruz. (Githubda ilgili Repository'e)
+
+4- Kullanıcı adı ve şifre soracak bunları da girdikten sonra dosyalarımızı gönderecektir.
+
+Göndereceğimiz_dosya_adı -->> Göndermek istediğimiz dosyadır.
+Repository_linki -->> İlgili dosyayı depolayacağımız yerdir.
+
+Kontrol için "git remote" yazıp enterliyoruz. Altında çıkan isimler uzak sunucuda oluşacak olan dosyalarımızdır.
+
+
+Bir dosyayı githubdan çekmek içinde 
+"git pull" yazmamız yeterlidir.
+
+--------------------------------------------------------------------------------------------------------------
+16. Git ignore Komutu
+Paylaşılmasını istemediğimiz dosyaları git ignore yardımıyla paylaşmayız.
+Bunu komutu kullanırken öncelikle bir ".gitignore.txt" adında bir dosya oluşturmalıyız.
+Ardından bu dosyanın içini açarak paylaşılmasını istemediğimiz dosyaların isimlerini yazarız.
+
+Bir başka örnek ise bir dosya veya klasörün altında kalan hiçbir dosyanın paylaşılmaması ile ilgilidir.
+"dizin/*" şeklinde yazarsak "dizin" dosyasının altında bulunan hiçbir dosya paylaşılmayacaktır.
+
+Bir diğer örnekse 
+Eğer bir klasör altında bulunan dosyalardan bir tanesi hariç geri kalanı göndermeyeceksek o bir taneyi ayırmamız gerekir.
+Bunun için "gitignore" metin belgesinin içine !referans_dosya/göndermek_istediğimiz_dosya
+
+Referans Dosya-->> Dizin dosyası.
+
+*** Gitignore dosyalarını proje başında oluştur.***
+Önce gitignore a yaz sonra pushla.
+Github Reposuna göndermeden önce gitignorea yaz... Yoksa etki etmez. 
+
+---------------------------------------------------------------------------------------------------------------
+17. Git Branchs 
+Terminale "git branch" yazarsak varolan branchleri gösterir.
+Terminale "git branch --all" dersek hem githubda ki hemde local yani bilgisayarımızdakileri gösterir.
+Terminale "git branch 'dosya adı' " yazarsak Localde (bilgisayarımızda) yeni bir branch oluşturur. 
+Uzak sunucudaki Yeni oluşturduğumuz branch'e ulaşmak için "git fetch" komutunu kullanıyoruz. 
+
+Aktif branch'i değiştirmek için  "git checkout 'geçmek istediğimiz branch adı'"  komutunu yazarız.
+
+ "git merge" komutu ile branchte bulunan dosyamızı master yani ana sunucumuza aktarmamızı sağlar. Kullanımı ise
+"git merge 'aktarılması istenen branch adı'"  veya github üzerinden Pull request komutunu kullanabilrsin.
+
+Github üzerinden sildikten sonra otomatik olarak localden silinmez. "git fetch" komutunu yazdığımızda listemizde hala görünmeye devam eder.
+Bunu kaldırmak için "git fetch -p" yazarız bunun anlamı 'Githubda ki branchleri kontrol et ve olmayanları sil demektir.'
+
+Local sunucuda oluşturduğumuz branch i silmek içinse "git branch -D 'branch adı'"
+ D -->> Deleteden gelmedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+18 - READme Dosyası
+Github üzerinde bulunan Add a README proje hakkında yorumlarımızı, nasıl hareket edileceği vesire gibi şeylerin yazıldığı yazı alanıdır.
+Html, video gibi şeyler gömebiliriz. 
+
+
+
+
+
